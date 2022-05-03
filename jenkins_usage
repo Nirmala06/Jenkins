@@ -1,7 +1,36 @@
 How to Install Jenkins?
 Setup Master slave server ?
 Install plugins in Jenkins ?
+global tool configuration?
 User management in Jenkins?
 Integrating github in jenkins?
 how to create a webhook?
-how to run script on remote server ?
+how to run script on slave node ?
+scripted pipeline and declarative pipleine?
+
+
+A pipeline is a collection of jobs that brings the software from scm into the hands of the end-users by using automation tools.
+
+What is a Jenkinsfile?
+A Jenkinsfile is a text file that stores the entire workflow as code and it can be checked into a SCM on your local system. How is this advantageous? This enables the developers to access, edit and check the code at all times.
+
+
+What are the different types of Jenkins pipeline?
+The Jenkins pipeline is written based on two syntaxes, namely:
+
+Declarative pipeline syntax
+Scripted pipeline syntax
+
+This code is written in a Jenkinsfile which can be checked into a source control management system such as Git.
+
+Whereas, the scripted pipeline is a traditional way of writing the code. In this pipeline, the Jenkinsfile is written on the Jenkins UI instance. Though both these pipelines are based on the groovy DSL, the scripted pipeline uses stricter groovy based syntaxes because it was the first pipeline to be built on the groovy foundation. 
+
+
+The declarative pipeline is defined within a block labelled ‘pipeline’ whereas the scripted pipeline is defined within a ‘node’. This will be explained below with an example.
+
+The declarative pipeline is defined by writing the code within a pipeline block. Within the block I’ve defined an agent with the tag ‘any’. This means that the pipeline is run on any available executor.
+Next, I’ve created four stages, each performing a simple task.
+Stage one executes a simple echo command which is specified within the ‘steps’ block.
+Stage two executes an input directive. This directive allows to prompt a user input in a stage. It displays a message and waits for the user input. If the input is approved, then the stage will trigger further deployments.
+In this demo a simple input message ‘Do you want to proceed?’ is displayed. On receiving the user input the pipeline either proceeds with the execution or aborts.
+

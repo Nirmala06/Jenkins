@@ -1,0 +1,9 @@
+    agent any
+    stages {
+        stage('stage1') {
+            steps {
+               checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/devusops/hello_world.git']]])
+            }
+        }
+    }
+}
